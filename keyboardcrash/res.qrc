@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/Textures">
+        <file>Down.png</file>
+        <file>Left.png</file>
+        <file>Right.png</file>
+        <file>Up.png</file>
+        <file>NoteDown.png</file>
+        <file>NoteLeft.png</file>
+        <file>NoteRight.png</file>
+        <file>NoteUp.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix1"/>
+</RCC>
