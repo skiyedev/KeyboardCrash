@@ -1,11 +1,13 @@
 #include "Note3.h"
+#include "Score.h"
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList>
 #include <stdlib.h>
 
-Note3::Note3(): QObject(), QGraphicsPixmapItem()
-{
+extern Score * score;
+
+Note3::Note3(): QObject(), QGraphicsPixmapItem() {
     setPixmap(QPixmap(":/Textures/NoteUp.png"));
     setPos(200,0);
     QTimer * timer = new QTimer(this);
@@ -13,12 +15,11 @@ Note3::Note3(): QObject(), QGraphicsPixmapItem()
     timer->start(4);
 }
 
-void Note3::move()
-{
+void Note3::move() {
     setPos(x(),y()+8);
-    if(pos().y() > 900)
-    {
+    if (pos().y() > scene()->height()) {
         scene()->removeItem(this);
         delete this;
+        score->decrease();
     }
 }
