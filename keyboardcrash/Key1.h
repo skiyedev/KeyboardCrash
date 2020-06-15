@@ -8,8 +8,7 @@ class Key1: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     void keyPressEvent(QKeyEvent * event);
-public slots:
-    void spawn();
 };
 
 #endif // KEY1_H
+
