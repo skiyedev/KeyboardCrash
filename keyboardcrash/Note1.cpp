@@ -1,17 +1,14 @@
 #include "Note1.h"
-#include "Key1.h"
+#include "Score.h"
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList>
 #include <stdlib.h>
-#include <QKeyEvent>
-#include <QDebug>
-#include <Score.h>
+
 
 extern Score * score;
 
-Note1::Note1(): QObject(), QGraphicsPixmapItem()
-{
+Note1::Note1(): QObject(), QGraphicsPixmapItem() {
     setPixmap(QPixmap(":/Textures/NoteLeft.png"));
     setPos(0,0);
     QTimer * timer = new QTimer(this);
@@ -19,19 +16,11 @@ Note1::Note1(): QObject(), QGraphicsPixmapItem()
     timer->start(4); // frame time
 }
 
-
-void Note1::move()
-{
+void Note1::move() {
     setPos(x(),y()+8);
-    if(pos().y() > 900)
-    {
+    if (pos().y() > scene()->height()) {
         scene()->removeItem(this);
         delete this;
+        score->decrease();
     }
 }
-
-
-
-
-
-
