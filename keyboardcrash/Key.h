@@ -4,11 +4,10 @@
 #include <QGraphicsRectItem>
 #include <QObject>
 
-class Key1: public QObject, public QGraphicsPixmapItem{
+class Key: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     void keyPressEvent(QKeyEvent * event);
 };
-
 #endif // KEY1_H
 
