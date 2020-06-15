@@ -1,13 +1,11 @@
 #include <QApplication>
 #include <QGraphicsScene>
-#include "Key1.h"
-#include "Key2.h"
-#include "Key3.h"
-#include "Key4.h"
+#include "Key.h"
 #include "Score.h"
 #include "SpawnArrow.h"
 #include <QGraphicsView>
 #include <QTimer>
+
 
 Score * score;
 
@@ -18,37 +16,20 @@ int main(int argc, char *argv[])
     QGraphicsScene * scene = new QGraphicsScene();
     QGraphicsView * view = new QGraphicsView(scene);
 
-    Key1 * key1 = new Key1();
-    Key2 * key2 = new Key2();
-    Key3 * key3 = new Key3();
-    Key4 * key4 = new Key4();
-    SpawnArrow * spawn = new SpawnArrow();
+	SpawnArrow * spawn = new SpawnArrow();
 
     Score * score;
 
-    key1->setFlag(QGraphicsPixmapItem::ItemIsFocusable);
-    key1->setPixmap(QPixmap(":/Textures/Left.png"));
-    key1->setPos(0,750);
-    scene->addItem(key1);
-    key1->setFocus();
+    QPixmap textures[] = {QPixmap(":/Textures/Left.png"), QPixmap(":/Textures/Down.png"), QPixmap(":/Textures/Up.png"), QPixmap(":/Textures/Right.png")};
 
-    key2->setFlag(QGraphicsPixmapItem::ItemIsFocusable);
-    key2->setPixmap(QPixmap(":/Textures/Down.png"));
-    key2->setPos(100,750);
-    scene->addItem(key2);
-    key2->setFocus();
-
-    key3->setFlag(QGraphicsPixmapItem::ItemIsFocusable);
-    key3->setPixmap(QPixmap(":/Textures/Up.png"));
-    key3->setPos(200,750);
-    scene->addItem(key3);
-    key3->setFocus();
-
-    key4->setFlag(QGraphicsPixmapItem::ItemIsFocusable);
-    key4->setPixmap(QPixmap(":/Textures/Right.png"));
-    key4->setPos(300,750);
-    scene->addItem(key4);
-    key4->setFocus();
+	for(int i = 0; i < 4; i++){
+		Key * key = new Key();
+        key->setFlag(QGraphicsPixmapItem::ItemIsFocusable);
+        key->setPixmap(textures[i]);
+    	key->setPos(100 * i, 750);
+    	scene->addItem(key);
+    	key->setFocus();
+	}
 
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
