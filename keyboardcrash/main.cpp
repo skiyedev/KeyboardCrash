@@ -6,7 +6,6 @@
 #include <QGraphicsView>
 #include <QTimer>
 
-
 Score * score;
 
 int main(int argc, char *argv[]) {
