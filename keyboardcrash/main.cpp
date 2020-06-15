@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
     QPixmap textures[] = {QPixmap(":/Textures/Left.png"), QPixmap(":/Textures/Down.png"), QPixmap(":/Textures/Up.png"), QPixmap(":/Textures/Right.png")};
 
     for (int i = 0; i < 4; i++) {
-		Key * key = new Key();
+	Key * key = new Key();
         key->setFlag(QGraphicsPixmapItem::ItemIsFocusable);
         key->setPixmap(textures[i]);
     	key->setPos(100 * i, 750);
