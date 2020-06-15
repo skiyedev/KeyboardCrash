@@ -6,8 +6,7 @@
 #include "Note4.h"
 #include "SpawnArrow.h"
 
-void SpawnArrow::spawnArrow()
-{
+void SpawnArrow::spawnArrow() {
     srand(time(NULL));
     int a = rand() % 8;
     if (a < 5) {
